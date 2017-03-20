@@ -4,7 +4,8 @@
 
 var express = require('express'),
     socketio = require('socket.io'),
-    routes = require('./routes');
+    routes = require('./routes'),
+    cfenv = require('cfenv');
 
 var app = module.exports = express.createServer();
 
@@ -50,9 +51,12 @@ app.io.sockets.on('connection', function(socket) {
   });
 });
 
+var appEnv = cfenv.getAppEnv()
+var port = appEnv.port || 3000; // use port from cf environment, fall back to 3000
+
 // Start the server.
 if (!module.parent) {
-  app.listen(3000, function(){
+  app.listen(port, function(){
     console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
   });
 }

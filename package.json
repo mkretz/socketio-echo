@@ -12,9 +12,10 @@
     "test": "./node_modules/.bin/mocha -R spec"
   },
   "dependencies": {
-    "socket.io": "^1.7.3",
+    "cfenv": "^1.0.4",
     "express": "~2.5.9",
-    "jade": "~0.26.1"
+    "jade": "~0.26.1",
+    "socket.io": "^1.7.3"
   },
   "devDependencies": {
     "mocha": "~1.1.0",

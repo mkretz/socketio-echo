@@ -1,0 +1,4 @@
+---
+applications:
+- name: socketio-echo
+  command: node server.js
